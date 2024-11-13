@@ -1,6 +1,5 @@
 //Crea la tua To-Do List mediante i metodi visti nel video.
 
-
 let ul =document.createElement("ul")
 let h1=document.querySelector("h1")
 
@@ -26,12 +25,21 @@ objectLi[0].textContent="Hello world"
 objectLi[1].textContent="Hello"
 objectLi[2].textContent="World"
 
-
-
-
 //Creare una lista aggiungendo il task desiderato mediante il bottone Aggiungi.
 
 const addProduct = () => {
+
   
+  const input = document.querySelector('input[type="text"]');
+
+  const li = document.createElement('li');
+  const checkbox = document.createElement('input');
+
+  li.innerText = input.value
+
+  checkbox.setAttribute('type', 'checkbox');
+
+  ul.appendChild(li);
+
 };
 
