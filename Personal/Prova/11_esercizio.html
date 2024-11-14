@@ -154,36 +154,53 @@ body {
 
             const data = await response.json()
             const name = data.name
+            const ability =  data.abilities.find(ability => ability.slot === 3)?.ability.name;
+            const abilityTerzo =  data.abilities.find(ability => ability.slot === 1)?.ability.name;
+            const Esperienza = data.base_experience
 
             const img = document.createElement("img")
             const li=document.createElement("li")
             const checkbox=document.createElement("input")
             const newButton = document.createElement("button")
+            const liSecond = document.createElement("li")
+            const liTerzo = document.createElement("li")
+            const liEsp = document.createElement("li")
 
             img.src = data.sprites.front_default
             img.alt = data.name
+            
 
             checkbox.setAttribute("type", "checkbox")
             newButton.innerText="Remove"
             
             li.innerText = name
+            liSecond.innerText = ability
+            liTerzo.innerText = abilityTerzo
+            liEsp.innerText = `Potenza: ${Esperienza}` 
            
             
-
             ul.appendChild(li)
-            li.appendChild(checkbox)
-            li.appendChild(newButton)
             li.appendChild(img)
+            li.appendChild(checkbox)
+            ul.appendChild(liSecond)
+            ul.appendChild(liTerzo)
+            ul.appendChild(liEsp) 
+            li.appendChild(newButton)
+            
 
             newButton.addEventListener("click", () => {
+
                 ul.removeChild(li)
+                ul.removeChild(liSecond)
+                ul.removeChild(liTerzo)
+
                 input.value="";
             })
 
-            //Assegno una classe al divLi per la stilizzazione
+            
             li.classList.add("divLi")
 
-            //Prendo abilita dei Pokemon, e lo stampo nel li, come un nuovo oggetto.
+            
             
             
 
