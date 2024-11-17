@@ -13,7 +13,19 @@ async function prodotti(url) {
         }
 
         const categorieViste = {} 
+
+
         
+        function filtraCategorie(selezione){
+            griglia.innerHTML= "";
+            const filtratore =  data.filter(x => x.category === selezione)
+
+            filtratore.forEach(element => {
+                const datoFiltrato = creacard(element)
+                griglia.appendChild(datoFiltrato)
+
+            })
+        }
 
         data.forEach(element => 
 {
@@ -22,11 +34,18 @@ async function prodotti(url) {
             categorieViste[element.category]
             aside.appendChild(categoria)
             categorieViste[element.category] = true;
-    }
+
+            categoria.addEventListener("click", ()=>{
+                    filtraCategorie(element.category)
+            })
+           
+        }
             
 
-           
-             const prodotti = creacard(element)
+           //const tutto = tutteCategorie(element)
+           // aside.appendChild(tutto)//
+
+            const prodotti = creacard(element)
             griglia.appendChild(prodotti)
         
         }
@@ -89,15 +108,18 @@ function creaCategoria(x){
 const divCategorie = document.createElement("div")
 const nomeCategoria = document.createElement("h3")
 
+
+
 divCategorie.classList.add("divCategoria")
 
 nomeCategoria.innerText = x
 
+
+
 divCategorie.appendChild(nomeCategoria)
 
-divCategorie.addEventListener("click", ()=>{
-
-})
 
 return divCategorie
 }
+
+
