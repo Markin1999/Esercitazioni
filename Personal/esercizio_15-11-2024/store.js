@@ -1,10 +1,65 @@
+
+const carrello = []
 async function prodotti(url) {
+    
     try {
+        
+
         const response = await fetch(url)
         const data = await response.json()
         const griglia = document.getElementById("contenitore-prodotti")
+        const nav = document.querySelector("nav")
         const aside = document.querySelector(".contenitore-categorie")
-       
+
+        
+
+        
+//button carrello
+
+
+        const buttonCarrello = document.createElement("button")
+
+        buttonCarrello.classList.add("buttonCarrello")
+
+        buttonCarrello.innerText="Carrello"
+
+        nav.appendChild(buttonCarrello)
+
+        buttonCarrello.addEventListener("click", () => {
+            griglia.innerHTML =""
+            carrello.forEach(element => {
+                const grigliaCarrello = creacard(element)
+                
+                const inputCheck = document.createElement("input")
+                const removeCarrello = document.createElement("button")
+
+                removeCarrello.classList.add("remove")
+
+                inputCheck.setAttribute("type", "checkbox")
+
+                removeCarrello.innerText="Rimuovi"
+
+                griglia.appendChild(grigliaCarrello)
+                griglia.appendChild(inputCheck)
+                griglia.appendChild(removeCarrello)
+
+                if(inputCheck.checked){
+                    
+                }
+
+                
+            })
+
+
+        })
+
+        //fine button carrello
+
+
+
+        
+ 
+
         
 
         if(!response.ok){
@@ -14,6 +69,27 @@ async function prodotti(url) {
 
         const categorieViste = {} 
 
+
+
+
+
+const divNuovo = document.createElement("div");
+const h3Nuovo = document.createElement("h3");
+divNuovo.classList.add("divCategoria");
+
+
+h3Nuovo.innerText = "All";
+
+divNuovo.addEventListener("click", () => {
+    griglia.innerHTML= "";
+    data.forEach(element =>  
+  {  const prodottiNuovo = creacard(element)
+            griglia.appendChild(prodottiNuovo)})
+
+})
+
+aside.appendChild(divNuovo);
+divNuovo.appendChild(h3Nuovo)
 
         
         function filtraCategorie(selezione){
@@ -37,6 +113,7 @@ async function prodotti(url) {
 
             categoria.addEventListener("click", ()=>{
                     filtraCategorie(element.category)
+
             })
            
         }
@@ -44,7 +121,7 @@ async function prodotti(url) {
 
            //const tutto = tutteCategorie(element)
            // aside.appendChild(tutto)//
-
+            
             const prodotti = creacard(element)
             griglia.appendChild(prodotti)
         
@@ -86,6 +163,10 @@ function creacard(obj) {
     prezzo.innerText = obj.price
     acquista.innerText = "🛒Acquista"
     preferiti.innerText = "❤️Preferiti"
+
+    acquista.addEventListener("click", () => {
+    carrello.push(obj)
+    });
     
     
 

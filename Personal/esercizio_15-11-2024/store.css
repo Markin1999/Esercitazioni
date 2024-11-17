@@ -28,12 +28,16 @@ body {
     padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .nav h1 {
-    margin: 0;
+    margin: 0 auto;
     font-size: 1.8rem;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Contenitore prodotti */
@@ -155,4 +159,20 @@ body {
     background-color: rgb(200, 200, 230); /* Colore di sfondo al passaggio */
     border-color: #222; /* Cambia il colore del bordo */
     transform: scale(1.1); /* Effetto zoom */
+}
+
+.remove {
+    background-color: #ff4d4d; /* Rosso chiaro */
+    color: white; /* Testo bianco */
+    border: none; /* Nessun bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    padding: 5px 10px; /* Spaziatura interna */
+    font-size: 14px; /* Dimensione testo */
+    font-family: Arial, sans-serif; /* Font */
+    cursor: pointer; /* Cambia il cursore */
+    transition: background-color 0.3s ease; /* Animazione al passaggio del mouse */
+    display: inline-flex; /* Allinea l'icona e il testo */
+    align-items: center; /* Centra il contenuto */
+    gap: 5px; /* Spaziatura tra icona e testo */
+    height: 70px;
 }
