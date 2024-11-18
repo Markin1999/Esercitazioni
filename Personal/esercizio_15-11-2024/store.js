@@ -43,9 +43,14 @@ async function prodotti(url) {
                 griglia.appendChild(inputCheck)
                 griglia.appendChild(removeCarrello)
 
+                if(inputCheck.checked){
+                    const variabile = carrello.filter(element => element.checked)
+
+                }
+
                 removeCarrello.addEventListener("click", () => {
                    
-                    
+                    carrello.removeChild(variabile)
                     
                     
                 });
