@@ -106,7 +106,7 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    
     width: 80%;
     align-self: center;
 }
@@ -136,43 +136,43 @@ body {
     gap: 20px;
     padding: 10px 20px;
     justify-content: center;
-    align-items: center; /* Centra verticalmente gli elementi */
+    align-items: center; 
     background-color: rgb(220, 220, 247);
     width: 100%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge una leggera ombra */
+    
     
 }
 
 .divCategoria {
-    border: 1px solid #444; /* Colore del bordo più scuro */
-    border-radius: 5px; /* Angoli arrotondati */
-    padding: 10px 15px; /* Spaziatura interna */
-    background-color: white; /* Sfondo bianco */
-    font-size: 16px; /* Dimensione del testo */
-    font-weight: bold; /* Testo in grassetto */
-    text-align: center; /* Centra il testo */
-    cursor: pointer; /* Cambia il cursore al passaggio */
-    transition: all 0.3s ease; /* Aggiunge una transizione fluida */
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px 15px; 
+    background-color: white; 
+    font-size: 16px;
+    font-weight: bold; 
+    text-align: center;
+    cursor: pointer; 
+   
 }
 
 .divCategoria:hover {
-    background-color: rgb(200, 200, 230); /* Colore di sfondo al passaggio */
-    border-color: #222; /* Cambia il colore del bordo */
-    transform: scale(1.1); /* Effetto zoom */
+    background-color: rgb(200, 200, 230);
+    border-color: #222;
+    transform: scale(1.1);
 }
 
 .remove {
-    background-color: #ff4d4d; /* Rosso chiaro */
-    color: white; /* Testo bianco */
-    border: none; /* Nessun bordo */
-    border-radius: 5px; /* Angoli arrotondati */
-    padding: 5px 10px; /* Spaziatura interna */
-    font-size: 14px; /* Dimensione testo */
-    font-family: Arial, sans-serif; /* Font */
-    cursor: pointer; /* Cambia il cursore */
-    transition: background-color 0.3s ease; /* Animazione al passaggio del mouse */
-    display: inline-flex; /* Allinea l'icona e il testo */
-    align-items: center; /* Centra il contenuto */
-    gap: 5px; /* Spaziatura tra icona e testo */
+    background-color: #ff4d4d; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px; 
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    
+    display: inline-flex;
+    align-items: center; 
+    gap: 5px; 
     height: 70px;
 }
