@@ -20,6 +20,7 @@
                 });
 
                 document.body.appendChild(newArray)
+                document.getElementById
 
             } catch (error) {
                 console.error(error)
@@ -31,11 +32,7 @@
                 const image = document.createElement("img")
 
                 titolo.innerText = obj.name
-
-
-
-
-                image.setAttribute("src", "https://ringsdb.com/api/public/cards/bundles/cards/01001.png")
+                image.src = `https://ringsdb.com${obj.imagesrc}`
 
                 div.appendChild(titolo);
                 div.appendChild(image);
