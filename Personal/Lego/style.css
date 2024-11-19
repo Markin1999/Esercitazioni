@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root{
+    --nav-bg-color: #FFD502; 
+  --main-head-foot-color: #E4E5EB; 
+  --dream-bg-color: #00A3DA;
+  --footer-bg-color: #201D48;
+  --font-family-primary: 'Cera Pro', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-title-1: 2rem;
+  --font-size-title-2: 1.25rem;
+  --font-size-title-3: 1.125rem;
+  --font-size-small: 0.875rem;
+  --font-size-smaller:0.75rem;
+  --font-weight-normal: 400;
+  --font-weight-heavy: 500;
+  --navbar-top-bgcolor: #f8f8f8;
+  --navbar-bottom-bgcolor: #FFD502;
+  --week-top-picks-bgcolor: #E4E5EB;
+  --dreamz-bgcolor: #4AA0D6;
+  --spotlight-bgcolor: #E4E5EB;
+  --welcometo-bgcolor: #F2F2F2;
+  --footer-bgcolor: #201D48;
+  --black-button-text-color: #000000;
+  --area-giochi-bgcolor: #ABD9FF;
+   --area-giochi-bgcolor-hover: #FFFFFF;
+   --holiday-color: #D0021B;
+   --promo-bgcolor: #FFFFFF;
+   --promo-bgcolor-hover: #000000;
+   --buy-now-bgcolor: #005AD2;
+   --add-cart-bgcolor: #E96F14;
+   --add-cart-bgcolor-hover: #FFFFFF;
+   --dreamz-bgcolor: #00A3DA;
+   --dreamz-bgcolor-hover: #021C47;
+   --see-all-bgcolor: #00A3DA;
+   --see-all-bgcolor-hover: #5b5c5e;
+   --explore-bgcolor: #00000099;
+   --explore-bgcolor-hover: #000000AB;
+   --see-all-articles-bgcolor: #e4e5ec;
+   --see-all-articles-bgcolor-hover: #000000AB;
+   --button-border-radius-light: 3px;
+   --button-border-radius-heavy: 4px;
+   --button-padding-small: 5px 20px;
+   --button-padding-mid: 10px 18px;
+   --button-padding-big: 15px;
+   --button-padding-allArticles: 8px 16px;
+  }
+
+  .section-in-evidenza{
+    background-color: var(--week-top-picks-bgcolor);
+    margin: 0 auto;
+    max-width: 100rem;
+  }
+
+  .spotlight{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    align-items: center;
+  }
+
+  .undicesimo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 62.4375rem;
+    border: 2px solid var(--see-all-bgcolor-hover);
+    cursor: pointer;
+    background-color:var(--see-all-articles-bgcolor);
+    color: var(--black-button-text-color);
+    padding: var(--button-padding-allArticles);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    line-height: 1.5rem;
+    width: max-content;
+    letter-spacing: 0px;
+    box-sizing: border-box;
+  }   
+  .undicesimo:hover{
+    background-color: var(--see-all-articles-bgcolor-hover);
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  .undicesimo svg{
+    width: 18px;
+    height: 13px;
+    margin-left: 12px;
+  }
+
+  .contenitore-griglia{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Card prodotto */
+.griglia {
+
+    width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.griglia img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
