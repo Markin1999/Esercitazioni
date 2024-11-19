@@ -97,7 +97,7 @@
     margin-left: 12px;
   }
 
-  .contenitore-griglia{
+  .contenitore-griglia-visualizza-articoli{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 40px 20px;
@@ -106,7 +106,7 @@
 
 }
 
-.griglia {
+.griglia-visualizza-articoli {
     width: 370px;
     display: flex;
     flex-direction: column;
@@ -117,7 +117,7 @@
 }
 
 
-.griglia img {
+.griglia-visualizza-articoli img {
     width: 100%;
     height: 280px;
     object-fit: cover;
@@ -125,7 +125,7 @@
     
 }
 
-.griglia h2 {
+.griglia-visualizza-articoli h2 {
     font-family: var(--font-family-primary);
     font-size: 1.25rem;
     line-height: 1.9375;
@@ -136,9 +136,9 @@
     
 }
 
-.griglia p{
+.griglia-visualizza-articoli p{
     font-family: var(--font-family-primary);
-    word-wrap: break-word; /*manda a capo il testo*/
+    word-wrap: break-word;
     margin-bottom: 15px;
     font-size: 0.875rem;
     line-height: 1.1875;
@@ -147,18 +147,17 @@
 
 
 
-.griglia a {
+.griglia-visualizza-articoli a {
     font-family: var(--font-family-primary);
     font-size: 1rem;
     line-height: 1.5625;
     font-weight: 500;
-   text-decoration: none; /* Rimuove la sottolineatura */
+   text-decoration: none; 
    color: #000000;
 }
 
 
 
-.griglia a:hover {
-    text-decoration: underline; /* Riaggiunge la sottolineatura al passaggio del mouse */
-    text-decoration-color: black; /* Imposta la linea sotto al testo di colore nero */
-}
+.griglia-visualizza-articoli a:hover {
+    text-decoration: underline; 
+    text-decoration-color: black; }
