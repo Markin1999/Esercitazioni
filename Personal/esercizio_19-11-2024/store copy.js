@@ -1,5 +1,6 @@
 
 const carrello = []
+const elementi = []
 async function prodotti(url) {
     
     try {
@@ -9,7 +10,7 @@ async function prodotti(url) {
         const data = await response.json()
         const griglia = document.getElementById("contenitore-prodotti")
         const nav = document.querySelector("nav")
-        const aside = document.querySelector(".contenitore-categorie")
+        const select = document.querySelector("#contenitore-categorie")
 
         
 
@@ -75,13 +76,16 @@ async function prodotti(url) {
             return
         }
 
-        const categorieViste = {} 
 
 
 
+       // const categorieViste = {} 
 
 
-const divNuovo = document.createElement("div");
+
+//All
+
+/*const divNuovo = document.createElement("div");
 const h3Nuovo = document.createElement("h3");
 divNuovo.classList.add("divCategoria");
 
@@ -98,6 +102,8 @@ divNuovo.addEventListener("click", () => {
 
 aside.appendChild(divNuovo);
 divNuovo.appendChild(h3Nuovo)
+//fine all
+
 
         
         function filtraCategorie(selezione){
@@ -109,11 +115,14 @@ divNuovo.appendChild(h3Nuovo)
                 griglia.appendChild(datoFiltrato)
 
             })
-        }
+        }*/
+
+         
 
         data.forEach(element => 
-{
-    if(!categorieViste[element.category]){ //Se la categoria non esiste, creo un elemento, con la categoria all'interno, categorieViste[element.category] ogni volta che trova una categoria mette true, quando non ha la categoria, rifa il procedimento
+            
+{elementi.push(element)
+    /*if(!categorieViste[element.category]){ //Se la categoria non esiste, creo un elemento, con la categoria all'interno, categorieViste[element.category] ogni volta che trova una categoria mette true, quando non ha la categoria, rifa il procedimento
             const categoria = creaCategoria(element.category)
             categorieViste[element.category]
             aside.appendChild(categoria)
@@ -124,8 +133,8 @@ divNuovo.appendChild(h3Nuovo)
 
             })
            
-        }
-            
+        }*/
+            //fine
 
            //const tutto = tutteCategorie(element)
            // aside.appendChild(tutto)//
@@ -193,22 +202,5 @@ function creacard(obj) {
 }
 
 
-function creaCategoria(x){
-const divCategorie = document.createElement("div")
-const nomeCategoria = document.createElement("h3")
-
-
-
-divCategorie.classList.add("divCategoria")
-
-nomeCategoria.innerText = x
-
-
-
-divCategorie.appendChild(nomeCategoria)
-
-
-return divCategorie
-}
 
 
