@@ -4,6 +4,9 @@ const prezzoMinimo = document.getElementById("prezzo-minimo");
 const prezzoMassimo = document.getElementById("prezzo-massimo");
 const resetB = document.getElementById("reset");
 
+let carrello = [];
+const carrelloB = document.getElementById("carrello");
+
 async function prodotti(url) {
   try {
     const response = await fetch(url);
@@ -52,6 +55,7 @@ async function prodotti(url) {
 
     // Aggiungi l'evento per filtrare le categorie
     //si attiva quando l'utente cambia l'opzione selezionata del menu
+
     select.addEventListener("change", () => filtra(data));
 
     prezzoMinimo.addEventListener("input", () => filtra(data));
@@ -62,7 +66,9 @@ async function prodotti(url) {
 
     resetB.addEventListener("click", () => {
       griglia.innerHTML = "";
-
+      prezzoMinimo.value = "";
+      prezzoMassimo.value = "";
+      select.value = "all";
       data.forEach((prodotto) => {
         const card = creaCard(prodotto);
         griglia.appendChild(card);
@@ -70,13 +76,54 @@ async function prodotti(url) {
     });
 
     //fine pulsante reset
+
+    //Pulsante carrello
+    carrelloB.addEventListener("click", () => {
+      if (carrello.length === 0) {
+        alert("Carrello vuoto");
+      } else {
+        mostraCarrello(carrello);
+      }
+    });
+
+    //fine carrello
   } catch (error) {
     console.error(error);
   }
 }
 
+function mostraCarrello(prodotti) {
+  griglia.innerHTML = "";
+  const buttonElimina = document.createElement("button");
+  buttonElimina.innerText = "Elimina tutto";
+
+  buttonElimina.addEventListener("click", () => {
+    carrello = [];
+    mostraCarrello(carrello);
+  });
+
+  prodotti.forEach((prodotto, index) => {
+    const card = creaCardCarrello(prodotto);
+    const checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+
+    checkbox.addEventListener("click", () => {
+      carrello.splice(index, 1);
+      mostraCarrello(carrello);
+    });
+
+    card.appendChild(checkbox);
+    griglia.appendChild(card);
+    griglia.appendChild(buttonElimina);
+  });
+
+  if (carrello.length === 0) {
+    griglia.innerHTML = "<p>Il carrello è vuoto.</p>";
+  }
+}
+
 // Funzione per mostrare i prodotti nella griglia
-function mostraProdotti(prodotti, griglia) {
+function mostraProdotti(prodotti) {
   griglia.innerHTML = ""; // Svuota la griglia prima di aggiungere nuovi elementi
   prodotti.forEach((prodotto) => {
     const card = creaCard(prodotto);
@@ -86,18 +133,21 @@ function mostraProdotti(prodotti, griglia) {
 
 function filtra(prodotti) {
   griglia.innerHTML = "";
+
   const minimoValue = prezzoMinimo.value;
   const massimoValue = prezzoMassimo.value;
   const categoriaSelezionata = select.value;
 
   const datiFiltrati = prodotti.filter((prodotto) => {
-    let prezzo = Math.ceil(prodotto.price);
+    const prezzo = Math.ceil(prodotto.price);
 
     const filtroCategoria =
       categoriaSelezionata === "all" ||
       prodotto.category === categoriaSelezionata;
 
-    const filtroPrezzo = prezzo >= minimoValue && prezzo <= massimoValue;
+    const filtroPrezzo =
+      (!minimoValue || prezzo >= minimoValue) &&
+      (!massimoValue || prezzo <= massimoValue);
 
     return filtroCategoria && filtroPrezzo;
   });
@@ -148,6 +198,43 @@ function creaCard(obj) {
   divBtn.appendChild(acquista);
   divBtn.appendChild(preferiti);
   div.appendChild(divBtn);
+
+  acquista.addEventListener("click", () => {
+    carrello.push(obj);
+  });
+  return div;
+}
+
+function creaCardCarrello(obj) {
+  const div = document.createElement("div");
+  const divImg = document.createElement("div");
+  const img = document.createElement("img");
+  const divTesto = document.createElement("div");
+  const titolo = document.createElement("h3");
+  const descrizione = document.createElement("p");
+  const prezzo = document.createElement("p");
+
+  div.classList.add("box");
+  divImg.classList.add("div-img");
+  img.classList.add("box-img");
+  divTesto.classList.add("div-testo");
+
+  prezzo.classList.add("prezzo");
+  titolo.classList.add("titolo");
+  descrizione.classList.add("descrizione");
+
+  img.src = obj.image;
+  img.alt = obj.title;
+  titolo.innerText = obj.title;
+  descrizione.innerText = obj.description;
+  prezzo.innerText = `€ ${obj.price}`;
+
+  divImg.appendChild(img);
+  div.appendChild(divImg);
+  div.appendChild(divTesto);
+  divTesto.appendChild(titolo);
+  divTesto.appendChild(descrizione);
+  divTesto.appendChild(prezzo);
 
   return div;
 }

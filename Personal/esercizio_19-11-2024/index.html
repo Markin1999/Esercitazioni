@@ -10,12 +10,21 @@
     <nav class="nav">
       <h1>Benvenuti nel nostro sito</h1>
     </nav>
-
-    <select name="" id="contenitore-categorie">
-      <input type="number" id="prezzo-minimo" placeholder="Prezzo Minimo" />
-      <input type="number" id="prezzo-massimo" placeholder="Prezzo Massimo" />
-      <button id="reset">reset</button>
-    </select>
+    <div class="container">
+      <select name="" id="contenitore-categorie">
+        <input
+          type="number"
+          id="prezzo-minimo"
+          placeholder="Prezzo Minimo"
+          min="1"
+        />
+        <input type="number" id="prezzo-massimo" placeholder="Prezzo Massimo" />
+        <button id="reset">reset</button>
+        <span id="carrello">
+          <button>Carrello</button>
+        </span>
+      </select>
+    </div>
 
     <div id="contenitore-prodotti"></div>
     <script src="store.js"></script>
