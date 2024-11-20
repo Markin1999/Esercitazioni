@@ -5,9 +5,9 @@ const prezzoMassimo = document.getElementById("prezzo-massimo");
 const resetB = document.getElementById("reset");
 
 let carrello = [];
-let preferiti = [];
+let favorite = [];
 const carrelloB = document.getElementById("carrello");
-const carrelloCount = document.getElementById("preferiti-count");
+const preferitiCount = document.getElementById("preferiti-count");
 
 async function prodotti(url) {
   try {
@@ -203,6 +203,10 @@ function creaCard(obj) {
 
   acquista.addEventListener("click", () => {
     carrello.push(obj);
+  });
+  preferiti.addEventListener("click", () => {
+    favorite.push(obj);
+    preferitiCount.textContent = favorite.length;
   });
   return div;
 }
