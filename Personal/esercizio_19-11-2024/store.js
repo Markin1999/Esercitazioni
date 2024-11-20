@@ -5,7 +5,9 @@ const prezzoMassimo = document.getElementById("prezzo-massimo");
 const resetB = document.getElementById("reset");
 
 let carrello = [];
+let preferiti = [];
 const carrelloB = document.getElementById("carrello");
+const carrelloCount = document.getElementById("preferiti-count");
 
 async function prodotti(url) {
   try {
