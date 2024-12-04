@@ -1,2 +1,2 @@
 # Esercitazioni
-Tutte i miei esercizi
+Esercizi Javascript, Css e Html
